@@ -3,6 +3,13 @@ p {
 
 }
 
+img {
+    display: block;
+    height: 500;
+    width: auto;
+
+}
+
 .return {
   color: blue;  
 
