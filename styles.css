@@ -1,22 +1,97 @@
-p {
-    color: red;
+:root {
+  --bg: #fbf7fa;
+  --text: #3a2a3f;
+  --heading: #6a2f6b;
+  --muted: #8a6f8f;
+  --accent: #a8336b;
+  --accent-hover: #7d2350;
+  --border: #ecd9e6;
+}
 
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+header {
+  margin-top: 32px;
+}
+
+header h1 {
+  margin-bottom: 4px;
+  color: var(--heading);
+}
+
+footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9em;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.intro p {
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 img {
-    display: block;
-    height: 500;
-    width: auto;
-
-}
-
-.title {
-    align-content: center;
-    padding: 50;
-
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .return {
-  color: blue;  
+  color: var(--accent);
+  text-decoration: none;
+}
 
+.return:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
