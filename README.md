@@ -3,10 +3,13 @@
 My portfolio site — a static site with no build step, served by GitHub Pages
 from `main` at [www.arkoday.com](https://www.arkoday.com).
 
+For a full architecture deep-dive, design rationale, and development history, see **[OVERVIEW.md](OVERVIEW.md)**.
+
 ## Structure
 
 ```
-index.html                       Home — hero, featured projects, skills, experience, contact
+OVERVIEW.md                      Architecture guide, design rationale & development log
+index.html                       Home — hero, featured note showcase, experience, technical skills
 projects.html                    Projects index
 projects/project-template.html   Blank template for a project write-up
 blog.html                        Notes index
