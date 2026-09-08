@@ -22,7 +22,6 @@
   --border: #2a2740;
   --code-bg: #1a1826;
   --focus: #a78bfa;
-  --avatar-glow: rgba(91, 33, 182, 0.62);
 
   /* Content column. Everything in the page body shares this, so left
      edges line up. Individual prose is capped by measure below rather
@@ -52,7 +51,6 @@
     --border: #e2dcf1;
     --code-bg: #f3effb;
     --focus: #6d28d9;
-    --avatar-glow: rgba(109, 40, 217, 0.14);
   }
 }
 
@@ -310,8 +308,6 @@ a:hover {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border);
-  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 8%, transparent),
-              0 18px 50px -12px var(--avatar-glow);
 }
 
 .monogram {
