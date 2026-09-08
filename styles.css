@@ -519,19 +519,13 @@ a:hover {
   flex: none;
   display: inline-flex;
   border-radius: 50%;
-  padding: 5px;
+  padding: 4px;
   background: var(--palette-gradient);
-  box-shadow: 
-    0 20px 50px -10px var(--palette-1-glow), 
-    0 24px 60px -15px var(--palette-2-glow);
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero-photo-frame:hover {
-  transform: scale(1.025);
-  box-shadow: 
-    0 24px 60px -10px var(--palette-1-glow), 
-    0 28px 75px -12px var(--palette-2-glow);
+  transform: scale(1.02);
 }
 
 .hero-photo,
