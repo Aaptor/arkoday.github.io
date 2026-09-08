@@ -12,6 +12,7 @@
   --bg-elev: #12111c;
   --surface: #16151f;
   --surface-hover: #1d1b28;
+  --header-bg: rgba(12, 11, 20, 0.82);
   --text: #eae8f2;
   --muted: #a9a3bd;
   --heading: #f3f1fa;
@@ -22,6 +23,8 @@
   --border: #2a2740;
   --code-bg: #1a1826;
   --focus: #a78bfa;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 14px 32px -6px rgba(0, 0, 0, 0.5);
 
   /* Content column. Everything in the page body shares this, so left
      edges line up. Individual prose is capped by measure below rather
@@ -36,11 +39,12 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: #faf9fd;
     --bg-elev: #f2eefb;
     --surface: #ffffff;
     --surface-hover: #f8f5fe;
+    --header-bg: rgba(250, 249, 253, 0.85);
     --text: #262233;
     --muted: #5f5875;
     --heading: #3b1a78;
@@ -51,7 +55,51 @@
     --border: #e2dcf1;
     --code-bg: #f3effb;
     --focus: #6d28d9;
+    --card-shadow: 0 4px 16px rgba(109, 40, 217, 0.06);
+    --card-shadow-hover: 0 14px 32px -6px rgba(109, 40, 217, 0.16);
   }
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #faf9fd;
+  --bg-elev: #f2eefb;
+  --surface: #ffffff;
+  --surface-hover: #f8f5fe;
+  --header-bg: rgba(250, 249, 253, 0.85);
+  --text: #262233;
+  --muted: #5f5875;
+  --heading: #3b1a78;
+  --accent: #6d28d9;
+  --accent-hover: #5b21b6;
+  --accent-deep: #4c1d95;
+  --on-accent: #ffffff;
+  --border: #e2dcf1;
+  --code-bg: #f3effb;
+  --focus: #6d28d9;
+  --card-shadow: 0 4px 16px rgba(109, 40, 217, 0.06);
+  --card-shadow-hover: 0 14px 32px -6px rgba(109, 40, 217, 0.16);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c0b14;
+  --bg-elev: #12111c;
+  --surface: #16151f;
+  --surface-hover: #1d1b28;
+  --header-bg: rgba(12, 11, 20, 0.82);
+  --text: #eae8f2;
+  --muted: #a9a3bd;
+  --heading: #f3f1fa;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-deep: #5b21b6;
+  --on-accent: #120c26;
+  --border: #2a2740;
+  --code-bg: #1a1826;
+  --focus: #a78bfa;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 14px 32px -6px rgba(0, 0, 0, 0.5);
 }
 
 *,
@@ -137,12 +185,13 @@ section {
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  /* Solid, not translucent: the frosted blur was removed, and a
-     semi-transparent bar without it just lets content show through. */
-  background: var(--bg);
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .site-header .wrap-wide,
@@ -152,8 +201,8 @@ section {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .brand {
@@ -170,7 +219,7 @@ section {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
@@ -206,6 +255,68 @@ section {
   height: 20px;
   display: block;
   fill: currentColor;
+}
+
+/* ---- Theme toggle ------------------------------------------------------- */
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+.theme-toggle .icon-sun {
+  display: block;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .theme-toggle .icon-sun {
+    display: none;
+  }
+  :root:not([data-theme="dark"]) .theme-toggle .icon-moon {
+    display: block;
+  }
+}
+
+html[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+html[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+html[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
 }
 
 /* ---- Typography --------------------------------------------------------- */
@@ -292,6 +403,66 @@ a:hover {
 
 .hero h1 {
   margin-bottom: 10px;
+}
+
+/* ---- Status badge ------------------------------------------------------- */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.status-badge:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 2px solid #10b981;
+  animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }
 
 .hero .want {
@@ -441,13 +612,15 @@ a:hover {
   padding: 16px;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
   background: var(--surface-hover);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .project-card:hover h3 {
@@ -459,16 +632,24 @@ a:hover {
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 8px;
-  background: var(--bg-elev);
+  background: linear-gradient(135deg, var(--bg-elev) 0%, var(--surface) 100%);
   border: 1px dashed var(--border);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-align: center;
-  padding: 8px;
+  padding: 10px;
   overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.project-card:hover .project-thumb {
+  border-color: var(--accent-deep);
 }
 
 /* once there is a real screenshot, the dashed border is not wanted */
@@ -802,8 +983,14 @@ img {
 
   .btn:hover,
   .project-card:hover,
-  .icon-link:hover {
+  .icon-link:hover,
+  .theme-toggle:hover,
+  .status-badge:hover {
     transform: none;
+  }
+
+  .status-dot::after {
+    animation: none;
   }
 
   * {

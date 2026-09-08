@@ -9,6 +9,9 @@
 
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="../styles.css">
+  <script>
+    (function(){var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}})();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -26,6 +29,10 @@
         <a class="icon-link" href="https://www.linkedin.com/in/arkoday-roychowdhury-810749230/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.5H.9V15h2.7V5.5ZM2.25 1A1.56 1.56 0 1 0 2.25 4.13 1.56 1.56 0 0 0 2.25 1ZM15 9.55c0-2.6-1.39-3.81-3.24-3.81-1.5 0-2.17.82-2.54 1.4V5.5H6.5c.04.76 0 9.5 0 9.5h2.72V9.69c0-.24.02-.48.09-.65.19-.48.63-.98 1.37-.98.97 0 1.36.74 1.36 1.81V15H15V9.55Z"/></svg>
         </a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <svg class="icon-sun" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+          <svg class="icon-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        </button>
       </nav>
     </div>
   </header>
@@ -153,6 +160,7 @@
       <span>Last updated: September 2026</span>
     </div>
   </footer>
+  <script src="../js/theme.js" defer></script>
   <script src="../js/reveal.js" defer></script>
 </body>
 </html>
