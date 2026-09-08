@@ -832,11 +832,13 @@ a:hover {
 
 .entry-content {
   min-width: 0;
+  color: var(--text);
 }
 
 .entry-content p {
   margin: 0 0 12px;
   max-width: 100%;
+  color: var(--text);
 }
 
 .entry-content p:last-child {
