@@ -24,8 +24,13 @@
   --focus: #a78bfa;
   --avatar-glow: rgba(91, 33, 182, 0.62);
 
-  --maxw: 720px;
-  --maxw-wide: 1040px;
+  /* Content column. Everything in the page body shares this, so left
+     edges line up. Individual prose is capped by measure below rather
+     than by the container, so widening the page does not lengthen the
+     lines people actually read. */
+  --maxw: 880px;
+  /* Structure only: header, footer and the project grid. */
+  --maxw-wide: 1280px;
   --radius: 12px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, "Liberation Mono", monospace;
@@ -113,6 +118,21 @@ button:focus-visible,
 
 section {
   margin: 0 0 64px;
+}
+
+/* Measure caps. The container may be wide; running text should not be.
+   ~65-75 characters is the comfortable range. */
+.lede,
+.entry > p,
+.notice,
+.post-body p,
+.post-body ul,
+.placeholder {
+  max-width: 72ch;
+}
+
+.hero .want {
+  max-width: 62ch;
 }
 
 /* ---- Site header / nav -------------------------------------------------- */
