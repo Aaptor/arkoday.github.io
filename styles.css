@@ -303,11 +303,10 @@ a:hover {
 .hero-photo,
 .monogram {
   flex: none;
-  /* Sized to sit at roughly 60% of the hero text block's height, so the
-     two halves balance. The source photo is 400x400, so this is the
-     largest size that still has real pixels behind it on a 2x screen. */
-  width: 224px;
-  height: 224px;
+  width: 250px;
+  height: 250px;
+  max-width: 75vw;
+  max-height: 75vw;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border);
@@ -357,6 +356,13 @@ a:hover {
   .hero-inner {
     flex-direction: row;
     text-align: left;
+    gap: 40px;
+  }
+
+  .hero-photo,
+  .monogram {
+    width: 280px;
+    height: 280px;
   }
 
   .hero-actions,
