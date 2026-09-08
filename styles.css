@@ -8,22 +8,22 @@
   color-scheme: dark light;
 
   /* dark is the default design, not a fallback */
-  --bg: #0e0b12;
-  --bg-elev: #15111b;
-  --surface: #1a1522;
-  --surface-hover: #211a2b;
-  --text: #ece6ef;
-  --muted: #b3a2ba;
-  --heading: #f4edf6;
-  --accent: #f48fb8;
-  --accent-hover: #f9b6d1;
-  --accent-deep: #7b3f9d;
-  --on-accent: #14101a;
-  --border: #2e2438;
-  --code-bg: #221b2c;
-  --focus: #f48fb8;
-  --glow-1: rgba(123, 63, 157, 0.55);
-  --glow-2: rgba(244, 143, 184, 0.18);
+  --bg: #0c0b14;
+  --bg-elev: #12111c;
+  --surface: #16151f;
+  --surface-hover: #1d1b28;
+  --text: #eae8f2;
+  --muted: #a9a3bd;
+  --heading: #f3f1fa;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --accent-deep: #5b21b6;
+  --on-accent: #120c26;
+  --border: #2a2740;
+  --code-bg: #1a1826;
+  --focus: #a78bfa;
+  --glow-1: rgba(91, 33, 182, 0.62);
+  --glow-2: rgba(167, 139, 250, 0.18);
 
   --maxw: 720px;
   --maxw-wide: 1040px;
@@ -34,22 +34,22 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #fbf7fa;
-    --bg-elev: #f6eef4;
+    --bg: #faf9fd;
+    --bg-elev: #f2eefb;
     --surface: #ffffff;
-    --surface-hover: #fdf7fb;
-    --text: #2e2233;
-    --muted: #6f5675;
-    --heading: #4d1f56;
-    --accent: #a8336b;
-    --accent-hover: #7d2350;
-    --accent-deep: #6a2f6b;
+    --surface-hover: #f8f5fe;
+    --text: #262233;
+    --muted: #5f5875;
+    --heading: #3b1a78;
+    --accent: #6d28d9;
+    --accent-hover: #5b21b6;
+    --accent-deep: #4c1d95;
     --on-accent: #ffffff;
-    --border: #e7d5e2;
-    --code-bg: #f4ecf2;
-    --focus: #a8336b;
-    --glow-1: rgba(168, 51, 107, 0.16);
-    --glow-2: rgba(123, 63, 157, 0.10);
+    --border: #e2dcf1;
+    --code-bg: #f3effb;
+    --focus: #6d28d9;
+    --glow-1: rgba(109, 40, 217, 0.14);
+    --glow-2: rgba(167, 139, 250, 0.12);
   }
 }
 
