@@ -132,7 +132,7 @@ Here is a detailed breakdown of all the iterations and enhancements completed ac
   - Added to `blog.html` and `sitemap.xml`.
 
 ### 8. Cache-Busting & Git Deployment Automation
-- Updated cache-busting version query parameters (`styles.css?v=14`) across all 12 HTML templates to ensure instant styling updates in visitors' browsers.
+- Updated cache-busting version query parameters (`styles.css?v=15`) across all 12 HTML templates to ensure instant styling updates in visitors' browsers.
 - Automated git staging, committing, and pushing directly to GitHub (`origin/main`).
 
 ---

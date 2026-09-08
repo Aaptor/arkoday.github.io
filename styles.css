@@ -1019,6 +1019,13 @@ a:hover {
   }
 }
 
+@media (min-width: 640px) {
+  .skills-grid-layout:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
 .skill-group {
   display: flex;
   flex-direction: column;
