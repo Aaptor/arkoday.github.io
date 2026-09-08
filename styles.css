@@ -1,44 +1,55 @@
 /* ==========================================================================
    Arkoday Roychowdhury — portfolio
-   One column, ~700px, system fonts, one accent colour, light + dark.
+   Dark-first. Light mode is kept for anyone who prefers it.
+   System fonts, one accent colour, no framework.
    ========================================================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark light;
 
-  --bg: #fbf7fa;
-  --surface: #ffffff;
-  --text: #2e2233;
-  --muted: #6f5675;
-  --heading: #6a2f6b;
-  --accent: #a8336b;
-  --accent-hover: #7d2350;
-  /* Text drawn on top of --accent (buttons, badges). Must stay readable in
-     both themes: the dark accent is light pink, so white would fail here. */
-  --on-accent: #ffffff;
-  --border: #e7d5e2;
-  --code-bg: #f4ecf2;
-  --focus: #a8336b;
+  /* dark is the default design, not a fallback */
+  --bg: #0e0b12;
+  --bg-elev: #15111b;
+  --surface: #1a1522;
+  --surface-hover: #211a2b;
+  --text: #ece6ef;
+  --muted: #b3a2ba;
+  --heading: #f4edf6;
+  --accent: #f48fb8;
+  --accent-hover: #f9b6d1;
+  --accent-deep: #7b3f9d;
+  --on-accent: #14101a;
+  --border: #2e2438;
+  --code-bg: #221b2c;
+  --focus: #f48fb8;
+  --glow-1: rgba(123, 63, 157, 0.55);
+  --glow-2: rgba(244, 143, 184, 0.18);
 
-  --maxw: 700px;
-  --radius: 10px;
+  --maxw: 720px;
+  --maxw-wide: 1040px;
+  --radius: 12px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, "Liberation Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --bg: #16121a;
-    --surface: #1f1a24;
-    --text: #ece6ef;
-    --muted: #b7a3bd;
-    --heading: #dcaee0;
-    --accent: #f293bb;
-    --accent-hover: #f8bad4;
-    --on-accent: #16121a;
-    --border: #362c3c;
-    --code-bg: #271f2d;
-    --focus: #f293bb;
+    --bg: #fbf7fa;
+    --bg-elev: #f6eef4;
+    --surface: #ffffff;
+    --surface-hover: #fdf7fb;
+    --text: #2e2233;
+    --muted: #6f5675;
+    --heading: #4d1f56;
+    --accent: #a8336b;
+    --accent-hover: #7d2350;
+    --accent-deep: #6a2f6b;
+    --on-accent: #ffffff;
+    --border: #e7d5e2;
+    --code-bg: #f4ecf2;
+    --focus: #a8336b;
+    --glow-1: rgba(168, 51, 107, 0.16);
+    --glow-2: rgba(123, 63, 157, 0.10);
   }
 }
 
@@ -56,9 +67,12 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-text-size-adjust: 100%;
+  /* Belt and braces against decorative overflow. `clip` rather than `hidden`
+     because overflow:hidden on body breaks the sticky header. */
+  overflow-x: clip;
 }
 
-/* ---- Skip link (keyboard users) ---------------------------------------- */
+/* ---- Skip link ---------------------------------------------------------- */
 
 .skip-link {
   position: absolute;
@@ -68,14 +82,12 @@ body {
   color: var(--on-accent);
   padding: 10px 16px;
   border-radius: 0 0 var(--radius) 0;
-  z-index: 10;
+  z-index: 20;
 }
 
 .skip-link:focus {
   left: 0;
 }
-
-/* ---- Focus visibility --------------------------------------------------- */
 
 a:focus-visible,
 button:focus-visible,
@@ -94,17 +106,29 @@ button:focus-visible,
   padding: 0 20px;
 }
 
+.wrap-wide {
+  width: 100%;
+  max-width: var(--maxw-wide);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 section {
-  margin: 0 0 48px;
+  margin: 0 0 64px;
 }
 
 /* ---- Site header / nav -------------------------------------------------- */
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
 }
 
+.site-header .wrap-wide,
 .site-header .wrap {
   display: flex;
   align-items: center;
@@ -129,7 +153,7 @@ section {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -137,11 +161,11 @@ section {
   color: var(--text);
   text-decoration: none;
   font-size: 0.95rem;
+  transition: color 0.15s ease;
 }
 
 .site-nav a:hover {
   color: var(--accent);
-  text-decoration: underline;
 }
 
 .site-nav a[aria-current="page"] {
@@ -152,10 +176,12 @@ section {
 .icon-link {
   display: inline-flex;
   color: var(--muted);
+  transition: color 0.15s ease, transform 0.15s ease;
 }
 
 .icon-link:hover {
   color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .icon-link svg {
@@ -171,17 +197,19 @@ h1,
 h2,
 h3 {
   color: var(--heading);
-  line-height: 1.25;
+  line-height: 1.2;
   margin: 0 0 12px;
 }
 
 h1 {
-  font-size: 1.9rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 1.3rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin-top: 0;
+  letter-spacing: -0.01em;
 }
 
 h3 {
@@ -202,7 +230,8 @@ a:hover {
 }
 
 .lede {
-  font-size: 1.08rem;
+  font-size: 1.1rem;
+  color: var(--text);
 }
 
 .muted {
@@ -213,19 +242,87 @@ a:hover {
   font-size: 0.87rem;
 }
 
+/* Eyebrow: the small label that sits above a heading. */
+.eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 6px;
+}
+
+.section-head {
+  margin-bottom: 28px;
+}
+
 /* ---- Hero --------------------------------------------------------------- */
 
 .hero {
-  padding: 48px 0 8px;
+  position: relative;
+  padding: 72px 0 40px;
+}
+
+/* the glow behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Must not exceed the viewport: this is centred with translateX(-50%), so
+     anything wider than 100vw spills past both edges and causes horizontal
+     scroll on narrow screens. */
+  width: min(900px, 100vw);
+  height: 520px;
+  background:
+    radial-gradient(circle at 30% 40%, var(--glow-1), transparent 62%),
+    radial-gradient(circle at 70% 30%, var(--glow-2), transparent 60%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-direction: column;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: 2.1rem;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .hero .want {
   color: var(--muted);
+}
+
+/* Profile photo. Swap .monogram for an <img class="hero-photo"> when there
+   is a real photo to use. */
+.hero-photo,
+.monogram {
+  flex: none;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 8%, transparent),
+              0 18px 50px -12px var(--glow-1);
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--heading);
+  background: linear-gradient(150deg, var(--accent-deep), var(--surface) 70%);
+  user-select: none;
 }
 
 .hero-actions {
@@ -233,16 +330,57 @@ a:hover {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 24px;
+  justify-content: center;
 }
+
+.hero-social {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.hero-social .icon-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+}
+
+.hero-social .icon-link:hover {
+  border-color: var(--accent);
+}
+
+@media (min-width: 720px) {
+  .hero-inner {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .hero-actions,
+  .hero-social {
+    justify-content: flex-start;
+  }
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  border-radius: var(--radius);
+  padding: 11px 22px;
+  border-radius: 999px;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
   border: 1px solid var(--accent);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -262,12 +400,22 @@ a:hover {
 }
 
 .btn-secondary:hover {
-  background: var(--code-bg);
+  background: var(--surface-hover);
   color: var(--accent-hover);
 }
 
-/* ---- Project cards ------------------------------------------------------ */
+/* ---- Project grid ------------------------------------------------------- */
 
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* the older single-column list, still used where a grid would be overkill */
 .card-list {
   display: flex;
   flex-direction: column;
@@ -279,18 +427,22 @@ a:hover {
 
 .project-card {
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 16px;
   text-decoration: none;
   color: inherit;
-  flex-direction: column;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
 .project-card:hover {
+  transform: translateY(-4px);
   border-color: var(--accent);
+  background: var(--surface-hover);
 }
 
 .project-card:hover h3 {
@@ -300,9 +452,9 @@ a:hover {
 .project-thumb {
   flex: none;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-  background: var(--code-bg);
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  background: var(--bg-elev);
   border: 1px dashed var(--border);
   display: flex;
   align-items: center;
@@ -310,19 +462,29 @@ a:hover {
   color: var(--muted);
   font-size: 0.78rem;
   text-align: center;
-  padding: 6px;
+  padding: 8px;
   overflow: hidden;
 }
 
-.project-thumb img {
+/* once there is a real screenshot, the dashed border is not wanted */
+.project-thumb:has(img),
+.project-thumb:has(video) {
+  border-style: solid;
+  padding: 0;
+}
+
+.project-thumb img,
+.project-thumb video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 0;
+  display: block;
 }
 
 .project-card h3 {
   margin: 0 0 6px;
+  font-size: 1.05rem;
 }
 
 .project-card p {
@@ -331,17 +493,13 @@ a:hover {
 
 .project-card-body {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-@media (min-width: 560px) {
-  .project-card {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .project-thumb {
-    width: 168px;
-  }
+.project-card-body .tags {
+  margin-top: auto;
 }
 
 /* ---- Tags / chips ------------------------------------------------------- */
@@ -357,18 +515,18 @@ a:hover {
 
 .tags li {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   background: var(--code-bg);
-  color: var(--heading);
+  color: var(--accent);
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 2px 10px;
 }
 
-/* ---- Skills strip ------------------------------------------------------- */
+/* ---- Skills ------------------------------------------------------------- */
 
 .skill-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .skill-group:last-child {
@@ -376,18 +534,18 @@ a:hover {
 }
 
 .skill-group h3 {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--muted);
   margin-bottom: 8px;
 }
 
-/* ---- Timeline (experience / education) ---------------------------------- */
+/* ---- Timeline ----------------------------------------------------------- */
 
 .entry {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -434,8 +592,8 @@ a:hover {
 }
 
 .post-item {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -469,7 +627,7 @@ a:hover {
 }
 
 .post-body h2 {
-  margin-top: 32px;
+  margin-top: 36px;
 }
 
 .post-body pre {
@@ -486,7 +644,7 @@ a:hover {
   font-size: 0.85rem;
 }
 
-/* ---- Contact list ------------------------------------------------------- */
+/* ---- Contact ------------------------------------------------------------ */
 
 .contact-list {
   list-style: none;
@@ -498,8 +656,8 @@ a:hover {
 }
 
 /* ---- Placeholders ------------------------------------------------------- */
-/* Deliberately conspicuous: this is unwritten content, and it must never be
-   mistaken for a real claim if a page goes live before it is filled in. */
+/* Deliberately conspicuous: unwritten content must never be mistaken for a
+   real claim if a page goes live before it is filled in. */
 
 .placeholder {
   border: 1px dashed var(--accent);
@@ -541,7 +699,7 @@ a:hover {
   margin-bottom: 0;
 }
 
-/* ---- Project detail page ------------------------------------------------ */
+/* ---- Project detail ----------------------------------------------------- */
 
 .project-meta {
   display: flex;
@@ -577,8 +735,6 @@ code {
   border-radius: 4px;
 }
 
-/* ---- Media -------------------------------------------------------------- */
-
 img {
   display: block;
   max-width: 100%;
@@ -590,13 +746,14 @@ img {
 
 .site-footer {
   border-top: 1px solid var(--border);
-  margin-top: 64px;
-  padding: 24px 0 48px;
+  margin-top: 72px;
+  padding: 28px 0 48px;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-.site-footer .wrap {
+.site-footer .wrap,
+.site-footer .wrap-wide {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -609,9 +766,42 @@ img {
   flex-wrap: wrap;
 }
 
-/* ---- Back link ---------------------------------------------------------- */
-
 .return {
   display: inline-block;
   margin-top: 8px;
+}
+
+/* ---- Motion ------------------------------------------------------------- */
+/* Progressive enhancement: content is visible by default. reveal.js adds
+   .js-reveal to <html>, which is what actually hides things before they
+   scroll in — so with JavaScript off, nothing is ever hidden. */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal,
+  .js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn:hover,
+  .project-card:hover,
+  .icon-link:hover {
+    transform: none;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
 }
