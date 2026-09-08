@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <script>
     (function(){var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}})();
   </script>
@@ -62,9 +62,11 @@
         <!-- POST LIST: newest first. new-post.py inserts here. -->
         <ul class="post-list">
           <!-- posts:start -->
-          <li class="post-item post-empty">
-            <p class="muted">
-              No posts yet &mdash; the first one is on its way.
+          <li class="post-item">
+            <a href="./blog/why-my-first-cnn-overfit.html">Why My First CNN Overfit</a>
+            <p class="post-meta"><time datetime="2026-09-08">8 September 2026</time></p>
+            <p class="muted small">
+              What hitting 98% training accuracy and collapsing on validation taught me about shortcut learning, receptive fields, and inductive biases in vision models.
             </p>
           </li>
           <!-- posts:end -->

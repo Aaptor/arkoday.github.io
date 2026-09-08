@@ -832,6 +832,142 @@ a:hover {
   margin-top: auto;
 }
 
+/* ---- Featured Note Showcase --------------------------------------------- */
+
+.featured-note-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease;
+}
+
+.featured-note-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--palette-gradient);
+  opacity: 0.9;
+}
+
+.featured-note-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124, 58, 237, 0.38);
+  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.12);
+}
+
+.featured-note-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.featured-note-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--palette-gradient-subtle);
+  border: 1px solid var(--border);
+  color: var(--palette-1);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.featured-note-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.featured-note-title a {
+  color: var(--heading);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.featured-note-title a:hover {
+  color: var(--palette-1);
+}
+
+.featured-note-desc {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  max-width: 75ch;
+  opacity: 0.9;
+}
+
+.featured-note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.featured-note-footer .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featured-note-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--palette-1);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.read-link:hover {
+  color: var(--palette-1-hover);
+  gap: 9px;
+}
+
+.all-notes-link {
+  color: var(--muted);
+  font-size: 0.84rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.all-notes-link:hover {
+  color: var(--text);
+}
+
 /* ---- Tags / chips ------------------------------------------------------- */
 
 .tags {

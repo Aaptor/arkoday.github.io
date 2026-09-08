@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <script>
     (function(){var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}})();
   </script>
@@ -87,7 +87,51 @@
         </div>
       </section>
 
-      <!-- 2. Experience -->
+      <!-- 2. Latest Note / Blog Showcase -->
+      <section aria-labelledby="featured-note-heading">
+        <div class="section-head">
+          <span class="eyebrow">Latest writing</span>
+          <h2 id="featured-note-heading">Featured Note</h2>
+        </div>
+
+        <div class="featured-note-card reveal">
+          <div class="featured-note-meta">
+            <span class="featured-note-badge">
+              <span class="status-dot"></span>
+              Latest Note
+            </span>
+            <time datetime="2026-09-08">8 September 2026</time>
+            <span class="featured-note-readtime">&middot; 4 min read</span>
+          </div>
+
+          <h3 class="featured-note-title">
+            <a href="./blog/why-my-first-cnn-overfit.html">Why My First CNN Overfit: Lessons in Inductive Bias and Data Hygiene</a>
+          </h3>
+
+          <p class="featured-note-desc">
+            What hitting 98% training accuracy and collapsing on validation taught me
+            about shortcut learning, receptive fields, and why biological vision doesn't memorize pixel noise.
+          </p>
+
+          <div class="featured-note-footer">
+            <ul class="tags">
+              <li>Machine Learning</li>
+              <li>CNNs</li>
+              <li>PyTorch</li>
+              <li>Computer Vision</li>
+            </ul>
+            <div class="featured-note-links">
+              <a class="read-link" href="./blog/why-my-first-cnn-overfit.html">
+                Read note
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
+              <a class="all-notes-link" href="./blog.html">All notes &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Experience -->
       <section aria-labelledby="experience-heading">
         <div class="section-head">
           <span class="eyebrow">Where I've worked</span>
@@ -148,7 +192,7 @@
         </div>
       </section>
 
-      <!-- 3. Skills -->
+      <!-- 4. Technical Skills -->
       <section aria-labelledby="skills-heading">
         <div class="section-head">
           <span class="eyebrow">What I use</span>
@@ -261,43 +305,6 @@
         </div>
       </section>
 
-      <!-- 4. Education -->
-      <section aria-labelledby="education-heading">
-        <div class="section-head">
-          <span class="eyebrow">Where I've studied</span>
-          <h2 id="education-heading">Education</h2>
-        </div>
-
-        <div class="entry entry-split reveal">
-          <div class="entry-meta">
-            <h3>University of York</h3>
-            <p class="entry-subtitle">BSc Computer Science · Expected 2027</p>
-            <span class="entry-date">Sep 2024 – Jun 2027</span>
-          </div>
-          <div class="entry-content">
-            <p class="small">
-              On track for a 2:1 based on second-year results. Relevant modules:
-              Introduction to Data Science; Intelligent Systems (Machine Learning
-              and Optimisation); Object Oriented Data Structures and Algorithms;
-              Operating Systems, Security and Networking; Advanced Computer
-              Systems.
-            </p>
-          </div>
-        </div>
-
-        <div class="entry entry-split reveal">
-          <div class="entry-meta">
-            <h3>WMG Academy for Young Engineers</h3>
-            <span class="entry-date">2024</span>
-          </div>
-          <div class="entry-content">
-            <p class="small">
-              A-Levels · Mathematics (A), Physics (B), Economics (B), Further
-              Mathematics (C)
-            </p>
-          </div>
-        </div>
-      </section>
 
     </div>
   </main>
