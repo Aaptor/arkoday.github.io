@@ -1008,6 +1008,24 @@ img {
   border-radius: 8px;
 }
 
+/* ---- CV Embed ----------------------------------------------------------- */
+
+.cv-embed-container {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  margin-top: 16px;
+  box-shadow: var(--card-shadow);
+}
+
+@media (max-width: 640px) {
+  .cv-preview-section {
+    display: none;
+  }
+}
+
 /* ---- Footer ------------------------------------------------------------- */
 
 .site-footer {
