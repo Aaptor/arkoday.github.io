@@ -347,7 +347,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 def main():
     root = os.path.dirname(os.path.abspath(__file__))
     html_path = os.path.join(root, "cv_source.html")
-    pdf_out1 = os.path.join(root, "Arkoday_Roychowdhury_CV_2.pdf")
+    pdf_out1 = os.path.join(root, "Arkoday_Roychowdhury_CV.pdf")
     pdf_out2 = os.path.join(root, "cv.pdf")
     
     with open(html_path, "w", encoding="utf-8") as f:
