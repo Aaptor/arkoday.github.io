@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <script>
     (function(){var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}})();
   </script>
@@ -45,16 +45,17 @@
   </header>
 
   <main id="main">
-    <div class="wrap">
-
+    <div class="wrap-wide">
       <!-- 1. Hero -->
       <section class="hero">
         <div class="hero-inner">
-          <img class="hero-photo" src="./images/arkoday.jpg" width="400" height="400"
-               alt="Arkoday Roychowdhury" fetchpriority="high">
+          <div class="hero-photo-frame">
+            <img class="hero-photo" src="./images/arkoday.jpg" width="1200" height="1200"
+                 alt="Arkoday Roychowdhury" fetchpriority="high">
+          </div>
 
-          <div>
-            <div class="status-badge reveal">
+          <div class="hero-content">
+            <div class="status-badge">
               <span class="status-dot"></span>
               <span>Open to Graduate Roles &amp; Internships 2027</span>
             </div>
@@ -87,6 +88,9 @@
           </div>
         </div>
       </section>
+    </div>
+
+    <div class="wrap">
 
       <!-- 2. Experience -->
       <section aria-labelledby="experience-heading">
