@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 /* ==========================================================================
    Arkoday Roychowdhury — portfolio
    Vibrant dual-palette system (Electric Violet & Vibrant Cyan/Teal).
@@ -58,7 +60,7 @@
   --maxw: 1200px;
   --maxw-wide: 1280px;
   --radius: 14px;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, "Liberation Mono", monospace;
 }
 
