@@ -1,19 +1,13 @@
-/* Theme toggle with localStorage persistence and OS preference synchronization. */
+/* Theme toggle with localStorage persistence. Light mode is the default. */
 (function () {
   "use strict";
-
-  function getSystemTheme() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
-  }
 
   function getActiveTheme() {
     var stored = localStorage.getItem("theme");
     if (stored === "light" || stored === "dark") {
       return stored;
     }
-    return getSystemTheme();
+    return "light";
   }
 
   function updateToggleButtons(theme) {
@@ -51,13 +45,4 @@
       applyTheme(targetTheme, true);
     });
   });
-
-  // Listen for system theme changes if user hasn't chosen manually
-  if (window.matchMedia) {
-    window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", function (e) {
-      if (!localStorage.getItem("theme")) {
-        applyTheme(e.matches ? "light" : "dark", false);
-      }
-    });
-  }
 })();
