@@ -119,7 +119,7 @@ Here is a detailed breakdown of all the iterations and enhancements completed ac
 - **Problem**: The home page lacked direct access to Arkoday's technical thought process and latest engineering writings.
 - **Solution**:
   - Created a **Featured Note** showcase section placed directly underneath the hero and profile picture.
-  - Designed `.featured-note-card` with an electric gradient top border, a glowing green `Latest Note` status pill, reading time estimate, topic badges, and dual direct links ("Read note" and "All notes →").
+  - Designed `.featured-note-card` with an electric gradient top border, publication date, reading time estimate, topic badges, and dual direct links ("Read note" and "All notes →").
 
 ### 7. Authored & Published "Why My First CNN Overfit"
 - **Problem**: The blog lacked authentic technical content showcasing machine learning problem-solving.
