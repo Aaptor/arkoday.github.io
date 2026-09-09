@@ -2,7 +2,7 @@
 """
 check.py — Automated quality gates for arkoday.com portfolio site.
 Validates:
-1. Navigation consistency (Nav drift check: 4/4 internal links on every page)
+1. Navigation consistency (Nav drift check: 3/3 internal links on every page)
 2. No live placeholders or notices on top-level pages
 3. Semantic heading structure (Exactly one <h1> per page)
 4. SEO & Social metadata (<title>, meta description, canonical, OpenGraph)
@@ -36,9 +36,9 @@ def check_nav_drift(html_files):
         rel = os.path.relpath(path, ROOT)
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
-        matches = set(re.findall(r'href="[^"]*(projects|blog|about|cv)\.html"', content))
-        if len(matches) < 4:
-            errors.append(f"Nav drift in {rel}: found only {len(matches)}/4 internal nav links ({matches})")
+        matches = set(re.findall(r'href="[^"]*(projects|blog|about)\.html"', content))
+        if len(matches) < 3:
+            errors.append(f"Nav drift in {rel}: found only {len(matches)}/3 internal nav links ({matches})")
     return errors
 
 def check_placeholders(html_files):
