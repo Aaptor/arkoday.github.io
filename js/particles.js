@@ -28,13 +28,13 @@
     },
     dark: {
       particles: [
-        { r: 168, g: 85, b: 247 },  // Bright Violet
-        { r: 34, g: 211, b: 238 },  // Vibrant Cyan
-        { r: 129, g: 140, b: 248 }  // Soft Indigo
+        { r: 215, g: 220, b: 232 },  // Crisp silvery starlight
+        { r: 170, g: 178, b: 198 },  // Monochromatic slate
+        { r: 195, g: 200, b: 218 }   // Soft luminous zinc
       ],
-      particleAlpha: 0.65,
-      lineAlpha: 0.20,
-      glowAlpha: 0.45
+      particleAlpha: 0.50,
+      lineAlpha: 0.15,
+      glowAlpha: 0.30
     }
   };
 
