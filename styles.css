@@ -46,20 +46,11 @@
   --on-accent: #ffffff;
   --focus: #0284c7;
 
-  /* Ambient background radiant glows */
+  /* Ambient background glows & tech grid */
   --grid-dot: rgba(124, 58, 237, 0.08);
   --bg-glow-1: rgba(124, 58, 237, 0.13);
   --bg-glow-2: rgba(2, 132, 199, 0.12);
   --bg-glow-3: rgba(79, 70, 229, 0.09);
-
-  /* Static Pattern Presets (Light Mode Default) */
-  --pattern-grid: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2748%27%20height%3D%2748%27%20viewBox%3D%270%200%2048%2048%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%200h48M0%200v48%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.07%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M0%200h5M0%200v5M48%200h-5M48%200v5M0%2048h5M0%2048v-5M48%2048h-5M48%2048v-5%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.30%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M24%2020v8M20%2024h8%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.22%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%271%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.35%29%27/%3E%20%3C/svg%3E');
-  --pattern-iso: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2760%27%20height%3D%27104%27%20viewBox%3D%270%200%2060%20104%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M30%200L0%2017.3v34.7L30%2069.3l30-17.3V17.3L30%200zM30%2034.7L0%2052v34.7l30%2017.3%2030-17.3V52L30%2034.7z%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.07%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M30%2034.7v34.6M0%2052l30%2017.3M60%2052L30%2069.3%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.12%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2730%27%20cy%3D%2769.3%27%20r%3D%271.5%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.3%29%27/%3E%20%3C/svg%3E');
-  --pattern-topo: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27160%27%20height%3D%27160%27%20viewBox%3D%270%200%20160%20160%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%2020C45%205%20115%2035%20160%2020M0%2055C50%2075%20110%2035%20160%2055M0%2090C45%2075%20115%20105%20160%2090M0%20125C50%20145%20110%20105%20160%20125M0%20160C45%20145%20115%20175%20160%20160%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.08%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2060c15%200%2025%2015%2015%2025s-30%205-30-10c0-10%205-15%2015-15z%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.14%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2068c8%200%2012%206%208%2010s-14%202-14-4c0-4%202-6%206-6z%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.22%29%27%20stroke-width%3D%271.2%27/%3E%20%3C/svg%3E');
-  --pattern-dots: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20fill%3D%27none%27%3E%20%3Ccircle%20cx%3D%2716%27%20cy%3D%2716%27%20r%3D%271.2%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.22%29%27/%3E%20%3Cpath%20d%3D%27M0%200h3M0%200v3M32%200h-3M32%200v3M0%2032h3M0%2032v-3M32%2032h-3M32%2032v-3%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.26%29%27%20stroke-width%3D%271%27/%3E%20%3C/svg%3E');
-
-  --bg-pattern: var(--pattern-grid);
-  --bg-pattern-size: 48px 48px;
 
   --card-shadow: 0 4px 18px rgba(124, 58, 237, 0.08);
   --card-shadow-hover: 0 16px 36px -6px rgba(124, 58, 237, 0.18);
@@ -111,14 +102,6 @@ html[data-theme="light"] {
   --bg-glow-2: rgba(2, 132, 199, 0.12);
   --bg-glow-3: rgba(79, 70, 229, 0.09);
 
-  --pattern-grid: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2748%27%20height%3D%2748%27%20viewBox%3D%270%200%2048%2048%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%200h48M0%200v48%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.07%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M0%200h5M0%200v5M48%200h-5M48%200v5M0%2048h5M0%2048v-5M48%2048h-5M48%2048v-5%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.30%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M24%2020v8M20%2024h8%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.22%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%271%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.35%29%27/%3E%20%3C/svg%3E');
-  --pattern-iso: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2760%27%20height%3D%27104%27%20viewBox%3D%270%200%2060%20104%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M30%200L0%2017.3v34.7L30%2069.3l30-17.3V17.3L30%200zM30%2034.7L0%2052v34.7l30%2017.3%2030-17.3V52L30%2034.7z%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.07%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M30%2034.7v34.6M0%2052l30%2017.3M60%2052L30%2069.3%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.12%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2730%27%20cy%3D%2769.3%27%20r%3D%271.5%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.3%29%27/%3E%20%3C/svg%3E');
-  --pattern-topo: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27160%27%20height%3D%27160%27%20viewBox%3D%270%200%20160%20160%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%2020C45%205%20115%2035%20160%2020M0%2055C50%2075%20110%2035%20160%2055M0%2090C45%2075%20115%20105%20160%2090M0%20125C50%20145%20110%20105%20160%20125M0%20160C45%20145%20115%20175%20160%20160%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.08%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2060c15%200%2025%2015%2015%2025s-30%205-30-10c0-10%205-15%2015-15z%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.14%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2068c8%200%2012%206%208%2010s-14%202-14-4c0-4%202-6%206-6z%27%20stroke%3D%27rgba%28124%2C58%2C237%2C0.22%29%27%20stroke-width%3D%271.2%27/%3E%20%3C/svg%3E');
-  --pattern-dots: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20fill%3D%27none%27%3E%20%3Ccircle%20cx%3D%2716%27%20cy%3D%2716%27%20r%3D%271.2%27%20fill%3D%27rgba%28124%2C58%2C237%2C0.22%29%27/%3E%20%3Cpath%20d%3D%27M0%200h3M0%200v3M32%200h-3M32%200v3M0%2032h3M0%2032v-3M32%2032h-3M32%2032v-3%27%20stroke%3D%27rgba%282%2C132%2C199%2C0.26%29%27%20stroke-width%3D%271%27/%3E%20%3C/svg%3E');
-
-  --bg-pattern: var(--pattern-grid);
-  --bg-pattern-size: 48px 48px;
-
   --card-shadow: 0 4px 18px rgba(124, 58, 237, 0.08);
   --card-shadow-hover: 0 16px 36px -6px rgba(124, 58, 237, 0.18);
   --photo-shadow: 0 16px 34px -8px rgba(33, 28, 51, 0.13), 0 6px 14px -2px rgba(33, 28, 51, 0.07);
@@ -163,40 +146,10 @@ html[data-theme="dark"] {
   --bg-glow-2: rgba(6, 182, 212, 0.18);
   --bg-glow-3: rgba(99, 102, 241, 0.15);
 
-  --pattern-grid: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2748%27%20height%3D%2748%27%20viewBox%3D%270%200%2048%2048%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%200h48M0%200v48%27%20stroke%3D%27rgba%28168%2C85%2C247%2C0.08%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M0%200h5M0%200v5M48%200h-5M48%200v5M0%2048h5M0%2048v-5M48%2048h-5M48%2048v-5%27%20stroke%3D%27rgba%28168%2C85%2C247%2C0.35%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M24%2020v8M20%2024h8%27%20stroke%3D%27rgba%2834%2C211%2C238%2C0.28%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%271%27%20fill%3D%27rgba%28168%2C85%2C247%2C0.40%29%27/%3E%20%3C/svg%3E');
-  --pattern-iso: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2760%27%20height%3D%27104%27%20viewBox%3D%270%200%2060%20104%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M30%200L0%2017.3v34.7L30%2069.3l30-17.3V17.3L30%200zM30%2034.7L0%2052v34.7l30%2017.3%2030-17.3V52L30%2034.7z%27%20stroke%3D%27rgba%28168%2C85%2C247%2C0.08%29%27%20stroke-width%3D%271%27/%3E%20%3Cpath%20d%3D%27M30%2034.7v34.6M0%2052l30%2017.3M60%2052L30%2069.3%27%20stroke%3D%27rgba%2834%2C211%2C238%2C0.14%29%27%20stroke-width%3D%271%27/%3E%20%3Ccircle%20cx%3D%2730%27%20cy%3D%2769.3%27%20r%3D%271.5%27%20fill%3D%27rgba%28168%2C85%2C247%2C0.35%29%27/%3E%20%3C/svg%3E');
-  --pattern-topo: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27160%27%20height%3D%27160%27%20viewBox%3D%270%200%20160%20160%27%20fill%3D%27none%27%3E%20%3Cpath%20d%3D%27M0%2020C45%205%20115%2035%20160%2020M0%2055C50%2075%20110%2035%20160%2055M0%2090C45%2075%20115%20105%20160%2090M0%20125C50%20145%20110%20105%20160%20125M0%20160C45%20145%20115%20175%20160%20160%27%20stroke%3D%27rgba%28168%2C85%2C247%2C0.09%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2060c15%200%2025%2015%2015%2025s-30%205-30-10c0-10%205-15%2015-15z%27%20stroke%3D%27rgba%2834%2C211%2C238%2C0.16%29%27%20stroke-width%3D%271.2%27/%3E%20%3Cpath%20d%3D%27M80%2068c8%200%2012%206%208%2010s-14%202-14-4c0-4%202-6%206-6z%27%20stroke%3D%27rgba%28168%2C85%2C247%2C0.25%29%27%20stroke-width%3D%271.2%27/%3E%20%3C/svg%3E');
-  --pattern-dots: url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%20fill%3D%27none%27%3E%20%3Ccircle%20cx%3D%2716%27%20cy%3D%2716%27%20r%3D%271.2%27%20fill%3D%27rgba%28168%2C85%2C247%2C0.26%29%27/%3E%20%3Cpath%20d%3D%27M0%200h3M0%200v3M32%200h-3M32%200v3M0%2032h3M0%2032v-3M32%2032h-3M32%2032v-3%27%20stroke%3D%27rgba%2834%2C211%2C238%2C0.30%29%27%20stroke-width%3D%271%27/%3E%20%3C/svg%3E');
-
-  --bg-pattern: var(--pattern-grid);
-  --bg-pattern-size: 48px 48px;
-
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   --card-shadow-hover: 0 16px 36px -6px rgba(0, 0, 0, 0.6);
   --photo-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.55), 0 6px 14px -2px rgba(0, 0, 0, 0.35);
   --photo-shadow-hover: 0 22px 46px -6px rgba(0, 0, 0, 0.65), 0 8px 18px -2px rgba(0, 0, 0, 0.4);
-}
-
-/* ---- Background Pattern Presets ----------------------------------------- */
-
-html[data-pattern="grid"] {
-  --bg-pattern: var(--pattern-grid);
-  --bg-pattern-size: 48px 48px;
-}
-
-html[data-pattern="isometric"] {
-  --bg-pattern: var(--pattern-iso);
-  --bg-pattern-size: 60px 104px;
-}
-
-html[data-pattern="topography"] {
-  --bg-pattern: var(--pattern-topo);
-  --bg-pattern-size: 160px 160px;
-}
-
-html[data-pattern="dots"] {
-  --bg-pattern: var(--pattern-dots);
-  --bg-pattern-size: 32px 32px;
 }
 
 *,
@@ -227,8 +180,8 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    /* Static Vector Blueprint Pattern */
-    var(--bg-pattern),
+    /* Tech dot matrix pattern */
+    radial-gradient(var(--grid-dot) 1px, transparent 1px),
     /* Top-left: Palette 1 (Electric Violet) radiant aura behind Hero */
     radial-gradient(circle 750px at 12% 10%, var(--bg-glow-1), transparent 70%),
     /* Top-right: Palette 2 (Vibrant Cyan) radiant aura behind Hero right */
@@ -239,7 +192,7 @@ body {
     radial-gradient(circle 750px at 92% 68%, var(--bg-glow-1), transparent 70%),
     /* Center-bottom: subtle indigo horizon */
     radial-gradient(circle 900px at 50% 95%, var(--bg-glow-3), transparent 75%);
-  background-size: var(--bg-pattern-size, 48px 48px), 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
   -webkit-text-size-adjust: 100%;
   overflow-x: clip;
@@ -249,7 +202,19 @@ body {
 /* ---- Background Particle Canvas ----------------------------------------- */
 
 .particle-canvas {
-  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle-canvas {
+    display: none;
+  }
 }
 
 main,
@@ -446,36 +411,6 @@ html[data-theme="dark"] .theme-toggle .icon-sun {
 }
 html[data-theme="dark"] .theme-toggle .icon-moon {
   display: none;
-}
-
-/* ---- Pattern toggle ----------------------------------------------------- */
-
-.pattern-toggle {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
-  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
-}
-
-.pattern-toggle:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--surface-hover);
-  transform: translateY(-2px);
-}
-
-.pattern-toggle svg {
-  width: 17px;
-  height: 17px;
-  display: block;
 }
 
 /* ---- Typography --------------------------------------------------------- */

@@ -35,7 +35,7 @@ arkoday.github.io/
 ├── js/
 │   ├── theme.js                 # Theme switcher: handles light/dark toggling and persists to localStorage
 │   ├── reveal.js                # IntersectionObserver script for smooth scroll-triggered element animations
-│   └── particles.js             # Static background pattern controller and pattern switcher helper (zero CPU)
+│   └── particles.js             # High-performance, zero-dependency HTML5 canvas organic particle constellation
 │
 ├── blog/
 │   ├── post-template.html       # Structural blueprint for generating new blog articles
@@ -68,10 +68,10 @@ arkoday.github.io/
 
 #### B. JavaScript Utilities (`js/`)
 - **`js/particles.js`**:
-  - Implements the static background pattern controller and pattern switching system.
-  - Controls 4 curated static background patterns (Architectural Precision Grid with Crosshairs, Topographic Contours, Isometric Tech Lattice, Refined Dot Matrix).
-  - Persists selected pattern via `localStorage` and synchronizes with `[data-pattern]` DOM attributes.
-  - Zero CPU overhead, battery-friendly, pure CSS/SVG vector rendering with no canvas animation loop.
+  - Implements a custom 60 FPS organic particle network directly on `<canvas id="particle-canvas">`.
+  - Dynamically adjusts particle count (46 on desktop, 24 on mobile) for near-zero CPU and memory usage.
+  - Implements soft sinusoidal drift physics, inter-particle gradient line linking, and cursor repulsion with glowing threads.
+  - Includes battery-saving features via `document.visibilityState` (pauses animation loop when tab is unfocused) and checks `prefers-reduced-motion`.
 - **`js/theme.js`**:
   - Manages the theme toggle switch with accessible ARIA state.
   - Immediately updates both the DOM attribute and `localStorage` to avoid flash of unstyled content (FOUC).
@@ -104,9 +104,9 @@ Here is a detailed breakdown of all the iterations and enhancements completed ac
 - **Problem**: Default system fonts lacked personality and modern tech identity.
 - **Solution**: Integrated **Space Grotesk** across the entire site. Updated headings (`h1` through `h4`), navigation links, badges, action buttons, and body text. The geometric proportions enhance readability and create an authentic editorial tech feel.
 
-### 4. Static High-Aesthetic Background Patterns & Pattern Switcher
-- **Problem**: Moving particle animations could feel distracting; a clean, static, architectural pattern was requested.
-- **Solution**: Designed vector SVG background presets directly in `styles.css` (Architectural Precision Grid with Crosshairs, Topographic Contours, Isometric Lattice, and Dot Matrix) layered over ambient Electric Violet and Vibrant Cyan glows. Added a pattern-cycle button in the header nav and managed state in `js/particles.js` with zero CPU usage.
+### 4. Zero-Dependency Organic Particle Canvas
+- **Problem**: Needed a dynamic, visually engaging visual touch without importing heavy external libraries.
+- **Solution**: Created `js/particles.js` from scratch. Configured fixed background canvas positioning (`z-index: 0`), set foreground sections (`z-index: 1`) with translucent hero backdrops, and gave widgets solid card backgrounds so particles flow smoothly across negative space without obstructing text readability.
 
 ### 5. Information Architecture & Page Restructuring
 - **Problem**: `index.html` was overcrowded with redundant education details, while `about.html` had duplicate content.
@@ -132,7 +132,7 @@ Here is a detailed breakdown of all the iterations and enhancements completed ac
   - Added to `blog.html` and `sitemap.xml`.
 
 ### 8. Cache-Busting & Git Deployment Automation
-- Updated cache-busting version query parameters (`styles.css?v=16`) across all HTML templates to ensure instant styling updates in visitors' browsers.
+- Updated cache-busting version query parameters (`styles.css?v=15`) across all 12 HTML templates to ensure instant styling updates in visitors' browsers.
 - Automated git staging, committing, and pushing directly to GitHub (`origin/main`).
 
 ---
@@ -168,8 +168,8 @@ The home page now follows an intentional flow designed for recruiters and collab
 | `projects.html` | Featured project cards and links to full case studies |
 | `blog.html` | Reverse-chronological directory of published notes and articles |
 | `cv.html` | Online CV presentation and PDF link target |
-| `styles.css` | Color palette variables, spacing, typography, background pattern SVGs, responsive queries |
-| `js/particles.js` | Static background pattern presets, cycle button bindings, localStorage persistence |
+| `styles.css` | Color palette variables, spacing, typography, card animations, responsive media queries |
+| `js/particles.js` | Particle count, speed, connection distance, colors, mouse interaction radius |
 | `new-post.py` | Script to run when creating a new blog post |
 
 ---
