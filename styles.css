@@ -1464,8 +1464,33 @@ a:hover {
   margin-bottom: 0;
 }
 
-.placeholder-card {
+.placeholder-card,
+.card-placeholder {
   border-style: dashed;
+}
+
+.project-card.card-placeholder {
+  cursor: default;
+}
+
+.project-card.card-placeholder:hover {
+  transform: none;
+  border-color: var(--accent);
+  box-shadow: var(--card-shadow);
+}
+
+.featured-note-card.card-placeholder {
+  cursor: default;
+}
+
+.featured-note-card.card-placeholder:hover {
+  transform: none;
+  border-color: var(--accent);
+  box-shadow: var(--card-shadow);
+}
+
+.featured-note-card.card-placeholder::before {
+  opacity: 0.4;
 }
 
 .notice {
